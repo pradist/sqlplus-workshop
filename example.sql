@@ -1745,73 +1745,11 @@ DEPARTMENT_ID DEPARTMENT_NAME                MANAGER_ID LOCATION_ID
 16 rows selected.
 
 SQL> rollback to b;
-
 Rollback complete.
-
 SQL> select * from departments;
-
-DEPARTMENT_ID DEPARTMENT_NAME                MANAGER_ID LOCATION_ID
-------------- ------------------------------ ---------- -----------
-          556 a                                     100        1700
-          557 ABC                                   100        1700
-          587 a                                     100        1700
-          777 ABCD                                  100        1700
-          888 ABCD                                  100        1700
-           10 Administration                        200        1700
-           20 Marketing                             201        1800
-           50 Shipping                              124        1500
-           60 IT                                    103        1400
-           80 Sales                                 149        2500
-           90 Executive                             100        1700
-
-DEPARTMENT_ID DEPARTMENT_NAME                MANAGER_ID LOCATION_ID
-------------- ------------------------------ ---------- -----------
-          110 Accounting                            205        1700
-          190 Contracting                                      1700
-
-13 rows selected.
-
 SQL> rollback to c;
-rollback to c
-*
-ERROR at line 1:
-ORA-01086: savepoint 'C' never established in this session or is invalid
-
-
 SQL> savepoint c;
-
-Savepoint created.
-
 SQL> savepoint a;
-
-Savepoint created.
-
 SQL> rollback to a;
-
-Rollback complete.
-
 SQL> select * from departments;
-
-DEPARTMENT_ID DEPARTMENT_NAME                MANAGER_ID LOCATION_ID
-------------- ------------------------------ ---------- -----------
-          556 a                                     100        1700
-          557 ABC                                   100        1700
-          587 a                                     100        1700
-          777 ABCD                                  100        1700
-          888 ABCD                                  100        1700
-           10 Administration                        200        1700
-           20 Marketing                             201        1800
-           50 Shipping                              124        1500
-           60 IT                                    103        1400
-           80 Sales                                 149        2500
-           90 Executive                             100        1700
-
-DEPARTMENT_ID DEPARTMENT_NAME                MANAGER_ID LOCATION_ID
-------------- ------------------------------ ---------- -----------
-          110 Accounting                            205        1700
-          190 Contracting                                      1700
-
-13 rows selected.
-
-SQL>
 
